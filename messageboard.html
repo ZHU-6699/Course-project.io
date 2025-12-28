@@ -1,0 +1,56 @@
+<!DOCTYPE html> <!-- HTML5文档声明，告知浏览器按HTML5标准解析页面 -->
+<html lang="en"> <!-- 页面根标签，指定页面语言为英文 -->
+<head>
+	<meta charset="UTF-8"> <!-- 设置字符编码为UTF-8，避免中文/特殊字符乱码 -->
+	<title>留言板</title> <!-- 设置浏览器标签栏显示的页面标题 -->
+	<link rel="stylesheet" href="css/messageboard.css"> <!-- 引入留言板专属CSS样式文件，美化页面布局 -->
+</head>
+<body>
+	<!-- lead：导航栏容器，承载品牌logo与页面导航链接 -->
+	<div id="lead">
+		<!-- <div class="container"></div> --> <!-- 预留布局容器（已注释），用于统一控制导航栏宽度与居中 -->
+		<table align="center"> <!-- 导航表格：设置整体水平居中，用于规整排列logo与导航项 -->
+			<tr> <!-- 导航表格单行：承载所有导航内容 -->
+			<td id=logo> <!-- 品牌logo单元格，单独设置id用于样式定制 -->
+				<a href="index.html"><font color="#F33F3F">SEVENTEEN</font></a> <!-- 品牌链接：点击跳转到主页，文字设为红色突出品牌 -->
+			</td>	
+			<td><a href="index.html">主页</a></td> <!-- 导航项：跳转至主页 -->
+			<td><a href="product.html">新品|女士</a></td> <!-- 导航项：跳转至女士新品页面 -->
+			<td><a href="#">新品|男士</a></td> <!-- 导航项：预留男士新品页面链接（点击不跳转） -->
+			<td><a href="#">新品|儿童</a></td> <!-- 导航项：预留儿童新品页面链接（点击不跳转） -->
+			<td><a href="#">新品|鞋包</a></td> <!-- 导航项：预留鞋包新品页面链接（点击不跳转） -->
+			<td><a href="about us.html">品牌形象</a></td> <!-- 导航项：跳转至品牌形象页面 -->
+		</tr></table>
+	</div>
+
+	<!-- 留言表单表格：带边框、水平居中、占页面90%宽度，用于规整布局留言内容 -->
+	<table border="1" align="center" width=90% height=100%>
+	<tr class="t3" align="center"  bgcolor=#666> <!-- 留言标题行：带专属样式、内容水平居中、背景色为深灰色 -->
+		<th colspan=2 ><b>Message Board</b></th> <!-- 标题单元格：跨2列显示，文字加粗突出留言板标题 -->
+	</tr>
+	<tr> <!-- 姓名输入行 -->
+		<td class="letter" width="20%">您的姓名:</td> <!-- 左侧提示单元格：宽度固定20%，显示“您的姓名”提示文字 -->
+		<td class="t1"><input class="t2" type="text" required><font color="red" >*</font></td> <!-- 右侧输入单元格：文本输入框（必填项），红色*标记必填 -->
+	</tr>
+	<tr> <!-- 邮箱输入行 -->
+		<td class="letter">您的邮箱:</td> <!-- 左侧提示单元格：显示“您的邮箱”提示文字 -->
+		<td class="t1"><input class="t2" type="text" required><font color="red" >*</font></td> <!-- 右侧输入单元格：文本输入框（必填项），红色*标记必填 -->
+	</tr>
+	
+	<tr> <!-- 其他联系方式输入行 -->
+		<td class="letter" >其他联系方式:</td> <!-- 左侧提示单元格：显示“其他联系方式”提示文字 -->
+		<td class="t1"><input class="t2" type="text" placeholder="QQ/MSN/电话号码" required><font color="red"  >*</font></td> <!-- 右侧输入单元格：带占位提示的文本输入框（必填项） -->
+	</tr>
+	<tr> <!-- 留言内容输入行 -->
+		<td class="letter" >留言内容：<br><font  >(200字以内)</font></td> <!-- 左侧提示单元格：显示留言内容提示，标注字数限制 -->
+		<td class="t4"><textarea class="content" name="e" id="" cols="50" rows="10"></textarea><font color="red" >*</font></td> <!-- 右侧输入单元格：多行文本域（用于输入留言内容，必填项） -->
+	</tr>
+	<tr class="last" align="center"> <!-- 提交重置按钮行：带专属样式、内容水平居中 -->
+		<td colspan="2">
+			<input  type="submit" value="提交留言" name="c"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!-- 提交按钮：触发表单提交（当前未绑定form标签，仅展示样式） -->
+			<input   type="reset" value="重新填写" name="d"> <!-- 重置按钮：清空所有输入框内容，恢复初始状态 -->
+		</td>
+	</tr>
+	</table>
+</body>
+</html>

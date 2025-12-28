@@ -1,0 +1,95 @@
+<!DOCTYPE html> <!-- HTML5文档声明，告知浏览器按HTML5标准解析页面 -->
+<html>
+	<head>
+		<meta charset="utf-8"> <!-- 设置字符编码为UTF-8，避免中文/特殊字符乱码 -->
+		<link href="css/shopping car.css" rel="stylesheet" type="text/css"> <!-- 引入购物车专属CSS样式文件，美化页面布局 -->
+		<title>购物车</title> <!-- 设置浏览器标签栏显示的页面标题为“购物车” -->
+	</head>
+	<body>
+		<!-- lead：导航栏容器，承载品牌logo与页面导航链接 -->
+		<div id="lead">
+			<!-- <div class="container"></div> --> <!-- 预留布局容器（已注释），用于统一控制导航栏宽度与居中 -->
+			<table > <!-- 导航表格：用于规整排列logo与导航项 -->
+				<tr> <!-- 导航表格单行：承载所有导航内容 -->
+				<td id=logo> <!-- 品牌logo单元格，单独设置id用于样式定制 -->
+					<a href="index.html"><span style="color: #F33F3F;">SEVENTEEN &nbsp;&nbsp;&nbsp;&nbsp;购物车</span></a> <!-- 品牌+购物车标题链接：点击跳转到主页，文字设为红色突出显示 -->
+				</td>	
+				<td><a href="index.html">主页</a></td> <!-- 导航项：跳转至主页 -->
+				<td><a href="product.html">新品|女士</a></td> <!-- 导航项：跳转至女士新品页面 -->
+				<td><a href="#">新品|男士</a></td> <!-- 导航项：预留男士新品页面链接（点击不跳转） -->
+				<td><a href="#">新品|儿童</a></td> <!-- 导航项：预留儿童新品页面链接（点击不跳转） -->
+				<td><a href="#">新品|鞋包</a></td> <!-- 导航项：预留鞋包新品页面链接（点击不跳转） -->
+				<td><a href="about us.html">品牌形象</a></td> <!-- 导航项：跳转至品牌形象页面 -->
+			</tr></table>
+		</div>
+
+		<!-- 购物车主表格：展示商品列表、价格及总计信息，设置唯一id用于JS操作 -->
+		<table id="jsTrolley">
+			<!-- 表格表头：包裹列标题，说明每列含义（商品/价格/操作） -->
+			<thead><tr><th>商品</th><th>价格</th><th>操作</th></tr></thead>
+			<!-- 表格主体：承载商品数据列表，展示所有商品信息 -->
+			<tbody>
+				<!-- 商品数据行1：包含商品图片、价格、删除按钮 -->
+				<tr class="pic"><td ><img src="img/z4.jpg" alt=""></td><td>666</td><td><a class="del" href="javascript:void(0);"> 删除</a></td></tr>
+				<!-- 商品数据行2：包含商品图片、价格、删除按钮 -->
+				<tr class="pic"><td><img src="img/z2.jpg" alt=""></td><td>666</td><td><a class="del" href="javascript:void(0);">删除</a></td></tr>
+				<!-- 商品数据行3：包含商品图片、价格、删除按钮 -->
+				<tr class="pic"><td><img src="img/z3.jpg" alt=""></td><td>666</td><td><a class="del" href="javascript:void(0);">删除</a></td></tr>
+			</tbody>
+			<!-- 表格底部：展示购物车总计金额与商品数量，初始显示总价1998元（3件商品） -->
+			<tfoot><tr><th>总计</th><td colspan="2">1998(3件商品)</td></tr></tfoot>
+		</table>
+
+		<!-- 操作按钮容器：承载“确认购买”与“全部清空”按钮 -->
+		<div class="goods1">
+			<table > <!-- 按钮表格：用于规整排列操作按钮 -->
+				<tr>
+					<td width=50%> <!-- 按钮单元格：宽度占50%，控制按钮展示区域 -->
+						<button class="btn">确认购买</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!-- 确认购买按钮：展示功能，暂未绑定业务逻辑 -->
+						<button id='clear' class="btn">全部清空</button> <!-- 全部清空按钮：设置唯一id用于JS绑定清空事件 -->
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<script>
+			// 1. 获取页面元素（提前查找需要操作的DOM元素，方便后续使用）
+			var goods = document.querySelectorAll('.pic'); // 获取所有商品数据行（class="pic"的tr标签）
+			var del = document.querySelectorAll('.del'); // 获取所有删除按钮（class="del"的a标签）
+			var tfoot = document.querySelector('tfoot'); // 获取购物车总计区域（tfoot标签）
+
+			// 2. 为每个删除按钮绑定点击事件（实现单个商品删除功能）
+			for(let i=0; i<del.length; i++){ // 遍历所有删除按钮
+				del[i].addEventListener('click', e=>{ // 为当前删除按钮绑定点击事件
+					console.log(this); // 打印this指向（箭头函数中this指向全局，此处用于调试）
+					var tr = e.target.parentNode.parentNode; // 获取当前删除按钮对应的商品数据行（tr标签）
+					var price = tr.children[1].innerText; // 获取当前商品的价格（第二个td标签的文本内容）
+					console.log(price); // 打印当前商品价格（调试用）
+					console.log(tfoot.children[0].children[1]); // 打印总计区域的金额单元格（调试用）
+					
+					// 提取当前总计金额：拆分总计文本，获取括号前的总价数字
+					var total = tfoot.children[0].children[1].innerText.split('(')[0];
+					console.log(total); // 打印当前总计金额（调试用）
+					
+					tr.parentNode.removeChild(tr); // 从DOM中移除当前商品数据行（删除商品）
+					
+					// 获取删除后剩余的商品数量（剩余删除按钮的个数）
+					var num = document.querySelectorAll('.del').length;
+					// 更新总计区域的HTML内容：计算新总价（原总价-当前商品价格，保留2位小数），显示剩余商品数量
+					tfoot.innerHTML = `<tr><th>总计</th><td colspan="2">${(Number(total)-Number(price)).toFixed(2)}(${num}件商品)</td></tr>`;
+				});
+			}
+
+			// 3. 为“全部清空”按钮绑定点击事件（实现清空购物车功能）
+			var clear = document.querySelector('#clear'); // 获取“全部清空”按钮（id="clear"）
+			var jsTrolley = document.querySelector('#jsTrolley'); // 获取购物车主表格（id="jsTrolley"）
+			clear.addEventListener('click', e=>{ // 为清空按钮绑定点击事件
+				jsTrolley.parentNode.removeChild(jsTrolley); // 从DOM中移除整个购物车主表格（清空购物车）
+				var goods1 = document.querySelector('.goods1'); // 获取操作按钮容器（class="goods1"）
+				goods1.style.marginTop = 500 + 'px'; // 调整按钮容器的上边距，将按钮往下挪500px
+			});
+		</script>
+	</body>
+</html>
+				
+

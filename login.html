@@ -1,0 +1,49 @@
+<!DOCTYPE html> <!-- HTML5文档声明 -->
+<html lang="en"> <!-- 页面根标签，语言为英文 -->
+<head>
+	<meta charset="UTF-8"> <!-- 字符编码为UTF-8，避免乱码 -->
+	<title>登录</title> <!-- 页面标题 -->
+	<link rel="stylesheet" type="text/css" href="css/login.css"> <!-- 引入登录页面专属样式 -->
+	<script type="text/javascript" src="js/login.js"></script> <!-- 引入登录页面专属脚本 -->
+</head>
+<body>
+	<div id="loginpage"> <!-- 登录页面整体容器 -->
+		<div id="form1"> <!-- 登录表单容器 -->
+			<!-- 表单：提交到主页，POST方式，提交前执行validate验证函数（返回false则拦截提交） -->
+			<form action="index.html" method="post" onsubmit="return validate()">
+				<table frame="border" rules="none"> <!-- 表格：带边框，不显示单元格内部分隔线，用于规整表单布局 -->
+					<tr> <!-- 账号行 -->
+						<td class="td1"> <!-- 账号单元格，带专属样式 -->
+							<img class="img1" src="img/2020-06-08_231233.png" alt=""> <!-- 账号图标 -->
+							账号：<input id="t2" name=a type="text" placeholder="请输入用户名/电话号码" maxlength="11" size=20 > <!-- 账号输入框：最多11位，提示文字 -->
+						</td>
+					</tr>
+					<tr> <!-- 密码行 -->
+						<td class="td1"> <!-- 密码单元格，带专属样式 -->
+							<img class="img1" src="img/2020-06-08_231330.png" alt=""> <!-- 密码图标 -->
+							密码：<input id="t3" name=b type="password" maxlength="8" placeholder="请输入密码 " size=20 > <!-- 密码输入框：隐藏输入内容，最多8位 -->
+						</td>
+					</tr>
+					<tr> <!-- 验证码行 -->
+						<td class="td1"> <!-- 验证码单元格，带专属样式 -->
+						
+							验证码：<input id="input" name="code" type="text" placeholder="请输入验证码" size=10 > <!-- 验证码输入框 -->
+							<!-- 验证码刷新文字：点击执行刷新函数，手型光标，蓝色文字，垂直居中 -->
+							<span id="loginCodeShow" onclick="createLoginCode()" style="cursor: pointer; color: #0066cc; vertical-align: middle;">点击刷新验证码</span>
+						</td>
+					</tr>
+					<tr> <!-- 登录按钮行 -->
+						<td>
+							<!-- 登录提交按钮：固定宽高，带专属样式 -->
+							<input style="height:50px;width:400px;" size=20 type="submit" value="登录" class="tick">
+						</td>
+					</tr>
+					<tr> <!-- 注册链接行 -->
+						<td> <a href="register.html">注册</a></td> <!-- 跳转到注册页面的链接 -->
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

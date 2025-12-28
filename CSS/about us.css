@@ -1,0 +1,96 @@
+
+
+
+*{
+	margin: 0;
+	padding:0;
+}
+ol,ul{
+	list-style-type: none;
+}
+a{
+	color:#666;
+	text-decoration: none;
+	
+}
+#content{
+	width:1200px;
+	height:700px;
+	/*border:1px solid #F2F2F2 ;*/
+	margin:0px auto;
+}
+
+#logo{
+	
+	height:120px;
+	width:100%;	
+}
+/* 针对id为logo的元素设置样式（品牌logo容器） */
+#logo {
+	background-color: #232428; /* 设置logo容器背景色为深灰黑色，统一品牌风格 */
+	font-size: 50px; /* 设置容器内文字基础大小为50px */
+	line-height: 120px; /* 设置行高120px，与容器高度一致，实现内容垂直居中 */
+	text-align: center; /* 文字水平居中，让logo在容器中居中显示 */
+}
+
+/* 针对id为logo的容器内的超链接（a标签，品牌文字）设置样式 */
+#logo a {
+	color:#F33F3F; /* 设置logo文字颜色为红色，突出品牌标识 */
+	font-size: 50px; /* 固定logo文字大小为50px，保证品牌视觉醒目 */
+	line-height: 90px; /* 设置行高90px，微调logo文字垂直位置 */
+}
+
+/* 针对id为lead的元素设置样式（导航/引导区域容器） */
+#lead{
+	margin-top: 20px; /* 容器顶部添加20px外边距，与上方元素拉开间距 */
+	height:30px; /* 固定容器高度为30px，适配内部内容高度 */
+	text-align: center; /* 容器内内容水平居中显示 */
+	font-size:20px; /* 容器内文字基础大小设为20px */
+}
+
+/* 针对id为t0的表格内的超链接设置样式（导航链接基础样式） */
+#t0 a{
+	color:#000000; /* 导航链接默认文字颜色为纯黑色，清晰醒目 */
+}
+
+/* 针对id为lead的容器内的超链接设置鼠标悬停样式 */
+#lead a:hover{
+	text-decoration: underline; /* 鼠标悬停时，链接添加下划线，提示交互状态 */
+	color:#666; /* 鼠标悬停时，链接文字变为深灰色，优化视觉反馈 */
+}
+
+/* 针对id为lead的容器内的表格设置样式 */
+#lead table{
+	margin: 0 auto; /* 表格水平居中，让导航在容器内居中排列 */
+}
+
+/* 针对id为lead的容器内的表格单元格设置样式 */
+#lead td{
+	width:100px; /* 每个单元格固定宽度为100px，保证导航项间距均匀 */
+}
+
+/* 针对class为tb1的表格设置样式（主内容展示表格） */
+.tb1{
+	text-align: center; /* 表格内内容水平居中 */
+	margin: 30px auto; /* 表格上下添加30px外边距，水平居中显示 */
+	width:1200px; /* 表格固定宽度为1200px，限制内容展示范围 */
+	height:600px; /* 表格固定高度为600px，适配内部图片高度 */
+}
+
+/* 针对class为td1的表格单元格设置样式（图片承载单元格） */
+.td1{
+	width:900px; /* 单元格固定宽度为900px，适配内部图片宽度 */
+}
+
+/* 针对class为img1的图片设置样式（主展示图片） */
+.img1{
+	width:900px; /* 图片固定宽度为900px，与承载单元格宽度一致 */
+	height:600px; /* 图片固定高度为600px，填满单元格高度 */
+}
+
+/* 针对class为td2的表格单元格设置样式（文字展示单元格） */
+.td2{
+	color:black; /* 单元格文字颜色设为纯黑色 */
+	font-size:60px; /* 文字大小设为60px，突出展示文字内容 */
+	font-weight:900px; /* 文字加粗（注：font-weight值应为数字（如900）或关键字，此处px为冗余单位，不影响加粗效果） */
+}

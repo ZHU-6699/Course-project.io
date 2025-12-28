@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- 页面标题：显示在浏览器标签栏上，对应品牌名称 -->
+	<title>SEVENTEEN CLOTHING</title>
+	<!-- 引入外部CSS样式表：统一管理页面样式，路径为css文件夹下的index.css -->
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+
+	<!-- banner样式：内部样式表，专门设置轮播图容器的基础样式 -->
+	<style>
+		#d1 a{display: none;} /* 隐藏轮播图所有图片链接（默认仅第一张显示，通过JS切换） */
+		#d1{height:600px; } /* 固定轮播图容器高度为600px，与轮播图片高度保持一致 */
+	</style>
+	<!-- 引入外部JS文件：存放页面额外的交互逻辑，路径为js文件夹下的index.js -->
+	<script src="js/index.js"></script>
+	<!-- banner样式结束 -->
+
+	<!-- 轮播图banner js：内部JS，实现轮播图自动切换功能 -->
+	<script>
+		var len=document.getElementsByName("i"); // 获取所有名称为"i"的轮播图链接（4张轮播图）
+		var pos=0; // 定义轮播图当前显示的索引（初始为0，对应第一张图）
+		// 轮播切换函数：隐藏当前图，显示下一张图
+		function change()
+		{
+			len[pos].style.display="none"; // 隐藏当前索引对应的轮播图
+			pos++; // 索引自增，切换到下一张
+			if(pos==len.length) pos=0; // 若索引超出图片总数，重置为0（循环播放）
+			len[pos].style.display="block"; // 显示新索引对应的轮播图
+		}
+		setInterval("change()",3000); // 设置定时器，每3秒执行一次change函数，实现自动轮播
+	</script>
+	<!-- banner结束 -->
+</head>
+<body>
+	<!-- 页面顶部：存放登录、注册、购物车等快捷功能入口 -->
+	<div id="top">
+		<div class="containerTop"> <!-- 顶部内容容器：实现内容居中对齐 -->
+			<ul class="right"> <!-- 列表右浮动：让功能项靠右排列 -->
+				<li>
+					<a href="login.html">登录</a>	<!-- 登录链接：跳转至登录页面 -->
+				</li>
+				<li>	
+					<a href="register.html">注册</a> <!-- 注册链接：跳转至注册页面 -->
+				</li>
+				<li class="car">
+					<a href="shopping car.html">购物车</a> <!-- 购物车链接：跳转至购物车页面 -->
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<!-- 导航栏：存放网站核心导航入口（分类、产品、品牌等） -->
+	<div id="guide">
+		<div class="containerTop"> <!-- 导航内容容器：与顶部容器宽度一致，保证对齐 -->
+			<div class="logo left"> <!-- Logo左浮动：靠左显示品牌名称 -->
+				<a href="#">25计科专本2班_25216950235_朱火勇</a> <!-- Logo链接：点击返回首页（当前href="#"为占位） -->
+			</div>
+			<ul class="right"> <!-- 导航列表右浮动：让导航项靠右排列 -->
+				<li><a href="home.html">分类</a></li> <!-- 分类链接：跳转至商品分类页面 -->
+				<li><a href="product.html">我们的产品</a></li> <!-- 产品链接：跳转至全部产品页面 -->
+				<li><a href="about us.html">品牌形象</a></li> <!-- 品牌链接：跳转至品牌介绍页面 -->
+				<li><a href="messageboard.html">联系我们</a></li> <!-- 联系链接：跳转至留言/联系页面 -->
+			</ul>
+		</div>
+	</div>
+
+	<!-- 页面的banner：轮播图展示区域，用于呈现品牌宣传图 -->
+	<div id="banner">
+		<div class="container"></div> <!-- 占位容器：保持与其他模块布局一致 -->
+		<div id=d1> <!-- 轮播图容器：包裹所有轮播图片 -->
+			<!-- 第一张轮播图：默认显示（style="display: block"），点击不跳转（javascript:void(0)） -->
+			<a name="i" href="javascript:void(0);"style="display: block" ><img src="img/t6.png" alt="" width=100% height="600px"></a>
+			<!-- 第二张轮播图：默认隐藏，点击不跳转 -->
+			<a name="i" href="javascript:void(0);"><img src="img/t7.png" alt="" width=100% height="600px"></a>
+			<!-- 第三张轮播图：默认隐藏，点击不跳转 -->
+			<a name="i" href="javascript:void(0);"><img src="img/t8.png" alt="" width=100% height="600px"></a>
+			<!-- 第四张轮播图：默认隐藏，点击不跳转 -->
+			<a name="i" href="javascript:void(0);"><img src="img/a1.png" alt="" width=100% height="600px"></a>
+		</div>
+	</div>
+
+	<!-- 页面最新产品：模块标题区域，用于展示“最新产品”标题和“浏览所有商品”入口 -->
+	<div id="last">
+		<div class="container"> <!-- 内容容器：实现标题和链接居中对齐 -->
+			<div class="pl left ">最新产品</div> <!-- 模块标题左浮动：显示“最新产品”文字 -->
+			<ul class="right"> <!-- 链接列表右浮动：让“浏览所有商品”靠右排列 -->
+				<!-- 浏览所有商品链接：跳转至产品页面，附带箭头图标 -->
+				<li><a href="product.html">浏览所有商品&nbsp;<img src="img/p3.png" alt=""></a> </li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- 最新产品图：商品展示区域，用于呈现最新上架的商品卡片 -->
+	<div id="pic">
+		<div class="container"></div> <!-- 占位容器：保持与其他模块布局一致 -->
+		<div class="pic-1"> <!-- 商品卡片容器：包裹所有商品列表 -->
+			<ul> <!-- 商品列表：存放所有商品卡片 -->
+				<!-- 商品1：靴子 -->
+				<li>
+					<!-- 商品图片链接：点击不跳转，图片固定宽高 -->
+					<a href="javascript:void(0);"><img width="430px" height="250px" src="img/p2.png" alt=""></a>
+					<div class="down-content"> <!-- 商品信息区域：存放标题、价格、描述 -->
+						<a href="javascript:void(0);"><h4>靴子</h4></a> <!-- 商品标题链接：点击不跳转 -->
+						<!-- 商品价格+加入购物车链接：价格为¥666，购物车链接附带图标 -->
+						<h4>&yen;666 &nbsp;&nbsp;&nbsp;<a href="javascript:void(0);"><span style="color: #F33F3F">加入购物车</span><img src="img/t4.jpg" alt=""></a></h4>
+						<!-- 商品描述文字：占位文本，用于展示商品简介 -->
+						<p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+					</div>
+					<div class="star"> <!-- 商品星级评分区域：显示评分图标（原calss为拼写错误，已修正为class） -->
+						<img src="img/t1.png" alt=""> <!-- 评分图标：展示商品星级 -->
+					</div>
+				</li>
+				<!-- 商品2：羊毛外套 -->
+				<li>
+					<a href="javascript:void(0);"><img width="430px" height="250px" src="img/p4.png" alt=""></a>
+					<div class="down-content">
+						<a href="javascript:void(0);"><h4>羊毛外套</h4></a>
+						<h4>&yen;666 &nbsp;&nbsp;&nbsp;<a href="javascript:void(0);"><span style="color: #F33F3F">加入购物车</span><img src="img/t4.jpg" alt=""></a></h4>
+						<p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+					</div>
+					<div class="star">
+						<img src="img/t1.png" alt="">
+					</div>
+				</li>
+				<!-- 商品3：围巾 -->
+				<li>
+					<a href="javascript:void(0);"><img width="430px" height="250px" src="img/p5.png" alt=""></a>
+					<div class="down-content">
+						<a href="javascript:void(0);"><h4>围巾</h4></a>
+						<h4>&yen;666 &nbsp;&nbsp;&nbsp;<a href="javascript:void(0);"><span style="color: #F33F3F">加入购物车</span><img src="img/t4.jpg" alt=""></a></h4>
+						<p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+					</div>
+					<div class="star">
+						<img src="img/t1.png" alt="">
+					</div>  
+				</li> 
+				<!-- 商品4：雪人玩偶 -->
+				<li>
+					<a href="javascript:void(0);"><img width="430px" height="250px" src="img/p7.png" alt=""></a>
+					<div class="down-content">
+						<a href="javascript:void(0);"><h4>雪人玩偶</h4></a>
+						<h4>&yen;666 &nbsp;&nbsp;&nbsp;<a href="javascript:void(0);"><span style="color: #F33F3F">加入购物车</span><img src="img/t4.jpg" alt=""></a></h4>
+						<p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+					</div>
+					<div class="star">
+						<img src="img/t1.png" alt="">
+					</div>
+				</li>
+				<!-- 商品5：毛衣 -->
+				<li>
+					<a href="javascript:void(0);"><img width="430px" height="250px" src="img/p6.png" alt=""></a>
+					<div class="down-content">
+						<a href="javascript:void(0);"><h4>毛衣</h4></a>
+						<h4>&yen;666 &nbsp;&nbsp;&nbsp;<a href="javascript:void(0);"><span style="color: #F33F3F">加入购物车</span><img src="img/t4.jpg" alt=""></a></h4>
+						<p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+					</div>
+					<div class="star">
+						<img src="img/t1.png" alt="">
+					</div>
+				</li>
+				<!-- 商品6：小小雪人玩偶 -->
+				<li>
+					<a href="javascript:void(0);"><img width="430px" height="250px" src="img/p8.png" alt=""></a>
+					<div class="down-content">
+						<a href="javascript:void(0);"><h4>小小雪人玩偶</h4></a>
+						<h4>&yen;666 &nbsp;&nbsp;&nbsp;<a href="javascript:void(0);"><span style="color: #F33F3F">加入购物车</span><img src="img/t4.jpg" alt=""></a></h4>
+						<p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+					</div>
+					<div class="star">
+						<img src="img/t1.png" alt="">
+					</div>
+				</li>
+				<!-- 商品7：短袖 -->
+				<li>
+					<a href="javascript:void(0);"><img width="430px" height="250px" src="img/z3.jpg" alt=""></a>
+					<div class="down-content">
+						<a href="javascript:void(0);"><h4>短袖</h4></a>
+						<h4>&yen;666 &nbsp;&nbsp;&nbsp;<a href="javascript:void(0);"><span style="color: #F33F3F">加入购物车</span><img src="img/t4.jpg" alt=""></a></h4>
+						<p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+					</div>
+					<div class="star">
+						<img src="img/t1.png" alt="">
+					</div>
+				</li>
+				<!-- 商品8：帽子 -->
+				<li>
+					<a href="javascript:void(0);"><img width="430px" height="250px" src="img/z2.jpg" alt=""></a>
+					<div class="down-content">
+						<a href="javascript:void(0);"><h4>帽子</h4></a>
+						<h4>&yen;666 &nbsp;&nbsp;&nbsp;<a href="javascript:void(0);"><span style="color: #F33F3F">加入购物车</span><img src="img/t4.jpg" alt=""></a></h4>
+						<p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+					</div>
+					<div class="star">
+						<img src="img/t1.png" alt="">
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

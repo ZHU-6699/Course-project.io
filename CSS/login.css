@@ -1,0 +1,83 @@
+/* 全局通配符选择器：清除所有HTML元素的默认外边距和内边距，避免浏览器默认样式干扰布局 */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* 超链接基础样式：设置默认文字颜色为深灰色，去除下划线 */
+a {
+	color: #666;
+	text-decoration: none;
+}
+
+/* 登录页面整体容器样式：实现背景图铺满+居中布局 */
+#loginpage {
+	margin: 0 auto; /* 容器水平居中 */
+	width: 100%; /* 宽度铺满浏览器窗口 */
+	height: 620px; /* 固定页面高度为720px */
+	background-image: url(../img/1.jpg); /* 设置背景图片，路径为上级目录下的img文件夹 */
+	background-size: 100%; /* 背景图宽度铺满容器 */
+	position: relative; /* 相对定位，作为内部表单绝对定位的参考容器 */
+}
+
+/* 登录表单容器样式：实现表单居中悬浮效果 */
+#form1 {
+	width: 500px; /* 表单固定宽度 */
+	height: 300px; /* 表单固定高度 */
+	background-color: #B2B2B2; /* 基础背景色（被透明色覆盖） */
+	background-color: rgba(0,0,0,0); /* 背景完全透明，仅保留布局 */
+	text-align: center; /* 内部内容水平居中 */
+	position: absolute; /* 绝对定位，脱离文档流 */
+	left: 50%; /* 水平偏移50% */
+	top: 50%; /* 垂直偏移50% */
+	transform: translate(-50%, -50%); /* 反向偏移自身50%，实现完美居中 */
+}
+
+/* 表单内超链接样式：设置默认文字颜色为白色，字体大小15px */
+#form1 a {
+	color: white;
+	font-size: 15px;
+}
+
+/* 表单内超链接悬停样式：鼠标移上时文字变为浅灰色，提供交互反馈 */
+#form1 a:hover {
+	color: #B2B2B2;
+}
+
+/* 表单内输入框基础样式：统一设置输入框宽高 */
+#form1 input {
+	width: 300px;
+	height: 40px;
+}
+
+/* 表格样式：用于规整表单布局，设置表格宽高与表单容器一致，字体大小15px */
+table {
+	width: 500px;
+	height: 300px;
+	font-size: 15px;
+	/* border: 10px inset white; */ /* 表格内嵌边框样式（已注释） */
+}
+
+/* 表格单元格样式：设置表单文字样式与垂直对齐方式 */
+td {
+	height: 40px; /* 单元格固定高度 */
+	color: white; /* 文字颜色为白色 */
+	font-weight: bold; /* 文字加粗 */
+	font-size: 20px; /* 字体大小20px */
+	vertical-align: button; /* 垂直对齐方式（注：应为bottom，此处为自定义写法，实现底部对齐效果） */
+}
+
+/* 登录按钮专属样式：设置按钮外观 */
+.tick {
+	background-color: #FD5C63; /* 按钮背景色为红色 */
+	color: #FFFFFF; /* 按钮文字为白色 */
+	font-size: 20px; /* 按钮字体大小20px */
+}
+
+/* 表单图标样式：设置图标大小与垂直对齐 */
+.img1 {
+	padding-right: 4px; /* 图标右侧内边距，与输入框拉开间距 */
+	width: 40px; /* 图标固定宽度 */
+	height: 35px; /* 图标固定高度 */
+	vertical-align: middle; /* 图标与文字/输入框垂直居中对齐 */
+}
